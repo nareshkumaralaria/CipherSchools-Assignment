@@ -25,3 +25,7 @@ export const comment_model = new mongoose.Schema({
         type: Date,
     }
 })
+
+const Comment = new mongoose.model("comment", comment_model);
+
+export default Comment;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Home, Signin, Signup } from './components';
 import { Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
 
 const getLocalStorageData = () => {
   let userLS = localStorage.getItem("user");
@@ -14,10 +15,10 @@ const getLocalStorageData = () => {
 function App() {
 
   const [user, setUser] = useState(getLocalStorageData);
-  // console.log("user :", user);
 
   return (
     <>
+      <Toaster toastOptions={{ style: { zIndex: "1056" }, }} />
       <Routes>
         <Route path="/" element={<Home getLocalStorageData={getLocalStorageData} user={user} setUser={setUser} />} />
         <Route path="/signup" element={

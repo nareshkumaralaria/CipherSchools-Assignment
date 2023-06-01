@@ -1,10 +1,8 @@
-import mongoose from 'mongoose'
-import { comment_model } from '../models/comment.model.js'
+import Comment from '../models/comment.model.js'
 
-const Comment = new mongoose.model("comment", comment_model);
 const dateIndia = new Date();
 
-const getComments = async (req, res) => {
+export const getComments = async (req, res) => {
     const { videoId } = req.query;
     try {
         const comment = await Comment.find({ videoId: videoId });
@@ -21,7 +19,7 @@ const getComments = async (req, res) => {
     }
 };
 
-const addComment = async (req, res) => {
+export const addComment = async (req, res) => {
     const { commentValues } = req.body;
     try {
         const comment = new Comment({
@@ -47,7 +45,3 @@ const addComment = async (req, res) => {
         })
     }
 }
-
-export default getComments;
-
-export { addComment }

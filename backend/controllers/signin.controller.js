@@ -1,9 +1,6 @@
-import mongoose from 'mongoose'
-import { user_model } from '../models/user.model.js'
+import User from '../models/user.model.js'
 
-const User = new mongoose.model("user", user_model);
-
-const signin = async (req, res) => {
+export const signin = async (req, res) => {
     const { formValues } = req.body;
 
     try {
@@ -36,5 +33,3 @@ const signin = async (req, res) => {
         })
     }
 };
-
-export default signin;

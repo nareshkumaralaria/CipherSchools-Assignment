@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export const video_model = new mongoose.Schema({
+const video_model = new mongoose.Schema({
     title: {
         type: String,
         require: true
@@ -20,3 +20,7 @@ export const video_model = new mongoose.Schema({
         type: Date,
     }
 })
+
+const Video = new mongoose.model("video", video_model);
+
+export default Video;

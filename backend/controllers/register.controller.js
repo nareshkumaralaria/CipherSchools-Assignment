@@ -1,10 +1,8 @@
-import mongoose from 'mongoose'
-import { user_model } from '../models/user.model.js'
+import User from '../models/user.model.js'
 
 const dateIndia = new Date();
-const User = new mongoose.model("user", user_model);
 
-const register = async (req, res) => {
+export const register = async (req, res) => {
     const { formValues } = req.body;
 
     try {
@@ -41,5 +39,3 @@ const register = async (req, res) => {
     }
 
 }
-
-export default register;

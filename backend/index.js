@@ -1,9 +1,9 @@
 // importing DB connection file
 import "./config/database.js";
 import app from "./config/app.js";
-import "dotenv/config";
+import "dotenv/config.js";
 
-import { addComment, getComments, getVideo, register, signin, updateLike } from './controllers/index.js';
+import { addComment, getComments, getVideo, register, signin, updateLike, getVideoById } from './controllers/index.js';
 
 const PORT = process.env.PORT || 9002;
 
@@ -15,6 +15,7 @@ app.post("/register", register);
 app.post("/signin", signin);
 
 app.get("/getVideo", getVideo);
+// app.get("/videos/:id", getVideoById);
 app.post("/updateLike", updateLike);
 
 app.get("/getComments", getComments);

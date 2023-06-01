@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { toast, Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import httpService, { base_url } from '../../apis/config';
 import { Comments } from '../index';
@@ -48,9 +48,9 @@ const Videocard = ({ videoData, getLocalStorageData }) => {
             }
         }
     }
+
     return (
         <>
-
             <div className="video-card" data-bs-toggle="modal" data-bs-target={`#videoModal${videoData._id}`}>
                 <div>
                     <video autoPlay={false} muted controls={false}>
@@ -65,7 +65,6 @@ const Videocard = ({ videoData, getLocalStorageData }) => {
 
             {/* Full screen modal */}
             <div className="modal fade" id={`videoModal${videoData._id}`}>
-                <div><Toaster /></div>
                 <div className="modal-dialog modal-fullscreen">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -75,6 +74,9 @@ const Videocard = ({ videoData, getLocalStorageData }) => {
                         <div className="modal-body">
                             <div className="modal-body-div">
                                 <div className="video-div">
+                                    {/* <video ref={videoRef} autoPlay muted controls>
+                                        <source src={`${base_url}/videos/${videoData._id}`} type="video/mp4" />
+                                    </video> */}
                                     <video ref={videoRef} autoPlay muted controls>
                                         <source src={videoData.src} type="video/mp4" />
                                     </video>
